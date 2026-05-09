@@ -17,7 +17,7 @@ export default function OpenSourceSection() {
           <div className="flex flex-col gap-y-3 items-center justify-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Contributing to Open Source</h2>
             <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed text-balance text-center">
-              I believe in giving back to the community. Here are some of the projects I've contributed to.
+              I believe in giving back to the community. Here are some of the projects I&apos;ve contributed to.
             </p>
           </div>
         </div>
