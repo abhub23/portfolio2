@@ -6,6 +6,7 @@ import { Typescript } from "@/components/ui/svgs/typescript";
 import { Nodejs } from "@/components/ui/svgs/nodejs";
 import { Python } from "@/components/ui/svgs/python";
 import { Golang } from "@/components/ui/svgs/golang";
+import { Redis } from "@/components/ui/svgs/redis";
 import { Postgresql } from "@/components/ui/svgs/postgresql";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
@@ -18,9 +19,9 @@ export const DATA = {
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Full-stack Software Engineer crafting products with TypeScript and Go. I take extreme ownership of what I build from architecture to deployment. Open to connect.",
+    "Full-stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "I'm a Full-stack Software Engineer and was a Founding Engineer at [Sylow AI](https://atomic.finance). I believe in the **build fast, ship faster** mindset. I've built products used by thousands of developers, including [Purge AI](https://purgeai.abdullahtech.dev). When I'm not coding, I'm either [writing blogs](/blog) about what I learn, or competing in hackathons for fun. [Here's my resume](/resume.pdf)",
   avatarUrl: "/me.jpeg",
   skills: [
     { name: "React", icon: ReactLight },
@@ -31,7 +32,8 @@ export const DATA = {
     { name: "Go", icon: Golang },
     { name: "Postgres", icon: Postgresql },
     { name: "Docker", icon: Docker },
-    { name: "Kubernetes", icon: Kubernetes }
+    { name: "Kubernetes", icon: Kubernetes },
+    { name: "Redis", icon: Redis }
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -75,11 +77,11 @@ export const DATA = {
   work: [
     {
       company: "Sylow AI",
-      href: "https://atomic.finance",
+      href: "https://sylow.ai",
       badges: [],
       location: "Remote",
       title: "Fullstack Software Engineer",
-      logoUrl: "/atomic.png",
+      logoUrl: "/company/sylow.png",
       start: "May 2021",
       end: "Oct 2022",
       description:
@@ -88,10 +90,10 @@ export const DATA = {
     {
       company: "Kanexon Inc",
       badges: [],
-      href: "https://shopify.com",
+      href: "https://kanexon.com",
       location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/shopify.svg",
+      title: "Fullstack Software Engineer",
+      logoUrl: "/company/kanexon.png",
       start: "January 2021",
       end: "April 2021",
       description:
@@ -99,11 +101,11 @@ export const DATA = {
     },
     {
       company: "Oasis Infobyte",
-      href: "https://nvidia.com/",
+      href: "https://www.oasisinfobyte.com/",
       badges: [],
       location: "Santa Clara, CA",
-      title: "Software Engineer",
-      logoUrl: "/nvidia.png",
+      title: "Software Engineer, Intern",
+      logoUrl: "/company/oasis.jpg",
       start: "January 2020",
       end: "April 2020",
       description:
@@ -113,9 +115,9 @@ export const DATA = {
   education: [
     {
       school: "University of Mumbai",
-      href: "",
+      href: "https://www.linkedin.com/school/university-of-mumbai/",
       degree: "Bachelor's of Computer Science",
-      logoUrl: "",
+      logoUrl: "/mu.jpg",
       start: "2020",
       end: "2024",
     },
