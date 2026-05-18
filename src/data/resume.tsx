@@ -165,7 +165,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/purgeai.png",
     },
     {
       title: "Privado",
@@ -195,7 +195,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/privado.png",
     },
     {
       title: "GitHub Metrics",
