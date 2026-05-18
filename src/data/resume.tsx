@@ -85,7 +85,7 @@ export const DATA = {
       start: "Oct 2025",
       end: "Feb 2025",
       description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+        "Designed RAG pipelines for enterprise document retrieval, enabling accurate context-aware responses across large knowledge bases. Built AI agents that automated complex multi-step workflows, reducing manual overhead significantly.",
     },
     {
       company: "Kanexon Inc",
@@ -97,7 +97,7 @@ export const DATA = {
       start: "Feb 2025",
       end: "June 2025",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+        "Developed full-stack web applications using React and Node.js, delivering scalable features for client-facing platforms. Collaborated cross-functionally to ship products on tight deadlines while maintaining high code quality.",
     },
     {
       company: "Oasis Infobyte",
@@ -109,7 +109,7 @@ export const DATA = {
       start: "Oct 2023",
       end: "Apr 2024",
       description:
-        "Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
+        "Developed and shipped responsive web interfaces and RESTful APIs using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver features in an agile environment.",
     },
   ],
   education: [
