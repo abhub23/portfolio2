@@ -129,12 +129,7 @@ export const DATA = {
       description: "Contributed to documentation improvements",
       dates: "2024",
     },
-    {
-      name: "React",
-      href: "https://react.dev",
-      description: "Bugfix contributions in issue tracking",
-      dates: "2023",
-    },
+
   ],
   projects: [
     {
