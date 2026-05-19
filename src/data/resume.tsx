@@ -138,7 +138,7 @@ export const DATA = {
       dates: "June 2025 - Oct 2025",
       active: true,
       description:
-        "Purge AI is an AI-powered tool that analyzes GitHub PRs using LLMs and metadata extraction. It streamlines developer workflows with accurate labeling, concise summaries, and dynamic adaptation to different repositories, boosting speed, consistency, and review efficiency.",
+        "Purge AI is an AI-powered tool that analyzes GitHub PRs using LLMs and metadata extraction. It streamlines developer workflows and dynamic adaptation to different repositories, boosting speed, consistency, and review efficiency.",
       technologies: [
         "Typescript",
         "Next.js",
