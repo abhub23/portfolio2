@@ -37,6 +37,13 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://abdullahtech.dev/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -52,6 +59,10 @@ export const metadata: Metadata = {
   twitter: {
     title: `${DATA.name}`,
     card: "summary_large_image",
+    images: {
+      url: "https://abdullahtech.dev/og-image.png",
+      type: "image/png",
+    },
   },
   verification: {
     google: "",
