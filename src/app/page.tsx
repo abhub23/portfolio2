@@ -50,9 +50,18 @@ export default function Page() {
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
               <Markdown
                 components={{
-                  a: ({ href, children }) => (
-                    <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
-                  ),
+                  a: ({ href, children }) => {
+                    const isExternal = href?.startsWith("http");
+                    return (
+                      <a
+                        href={href}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                      >
+                        {children}
+                      </a>
+                    );
+                  },
                 }}
               >
                 {DATA.summary}
