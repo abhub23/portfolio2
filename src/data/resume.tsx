@@ -21,7 +21,7 @@ export const DATA = {
   description:
     "Full-stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
   summary:
-    "Full-stack Software Engineer. Previously Founding Engineer at [Sylow AI](https://sylow.ai). I've built products used by thousands of developers including [Purge AI](https://purgeai.abdullahtech.dev) and I ship with a *build fast, ship faster* mindset. Outside of code, I read, write [blogs](/blog), and learn out loud. [Resume](https://drive.google.com/file/d/1SwNnzolG1-cpu-YkzIlw53HJvcoewDMW/view)",
+    "Full-stack Software Engineer. Previously Founding Engineer at [Sylow AI](https://sylow.ai). I've built products used by thousands of developers including [Purge AI](https://purgeai.abdullahtech.dev) and I ship with a *build fast, ship faster* mindset. Outside of code, I read, write [blogs](/blog), and learn out loud. [Resume](https://drive.google.com/file/d/1sEduTofbENUHMyl2njFMwcbI-mu7T9Sx/view)",
   avatarUrl: "/pf.jpg",
   skills: [
     { name: "React", icon: ReactLight },
