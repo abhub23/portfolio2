@@ -19,9 +19,11 @@ export const DATA = {
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Full-stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
+    "Full stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
   summary:
-    "Full-stack Software Engineer. Previously Founding Engineer at [Sylow AI](https://sylow.ai). I've built products used by thousands of developers including [Purge AI](https://purgeai.abdullahtech.dev) and I ship with a *build fast, ship faster* mindset. Outside of code, I read, write [blogs](/blog), and learn out loud. [Resume](https://drive.google.com/file/d/1sEduTofbENUHMyl2njFMwcbI-mu7T9Sx/view)",
+    `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
+
+I read, write [blogs](/blog), and learn out loud. More on my [resume](https://drive.google.com/file/d/1sEduTofbENUHMyl2njFMwcbI-mu7T9Sx/view).`,
   avatarUrl: "/pf.jpg",
   skills: [
     { name: "React", icon: ReactLight },
@@ -83,7 +85,7 @@ export const DATA = {
       title: "Fullstack Software Engineer",
       logoUrl: "/company/sylow.png",
       start: "Oct 2025",
-      end: "Feb 2025",
+      end: "Feb 2026",
       description:
         "Designed RAG pipelines for enterprise document retrieval, enabling accurate context-aware responses across large knowledge bases. Built AI agents that automated complex multi-step workflows, reducing manual overhead significantly.",
     },
@@ -173,7 +175,7 @@ export const DATA = {
         "Next.js",
         "Typescript",
         "Node.js",
-        "Web Sockets",
+        "WebSockets",
         "TailwindCSS",
         "Socket.IO",
         "Shadcn UI",
