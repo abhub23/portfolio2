@@ -23,7 +23,11 @@ export const DATA = {
   summary:
     `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
 
-I read, write [blogs](/blog), and learn out loud. More on my [resume](https://drive.google.com/file/d/1sEduTofbENUHMyl2njFMwcbI-mu7T9Sx/view).`,
+I read, write [blogs](/blog), and learn out loud. More on my [resume](https://drive.google.com/file/d/1sEduTofbENUHMyl2njFMwcbI-mu7T9Sx/view).
+
+Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
+
+
   avatarUrl: "/pf.jpg",
   skills: [
     { name: "React", icon: ReactLight },
@@ -195,9 +199,9 @@ I read, write [blogs](/blog), and learn out loud. More on my [resume](https://dr
       image: "/privado.png",
     },
     {
-      title: "GitHub Metrics",
-      href: "https://githubstats.abdullahtech.dev",
-      dates: "April 2023 - September 2023",
+      title: "Agentic AI",
+      href: "https://stealth.abdullahtech.dev",
+      dates: "Feb 2026 - Current",
       active: true,
       description:
         "Now you can Compare your Github Stats with the best in the world, be it Torvalds, Karpathy, Harkirat and who not. You think you're doing your best? have better PR's than someone? Lets see here mate.",
@@ -213,16 +217,16 @@ I read, write [blogs](/blog), and learn out loud. More on my [resume](https://dr
       links: [
         {
           type: "Website",
-          href: "https://githubstats.abdullahtech.dev",
+          href: "https://stealth.abdullahtech.dev",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/abhub23/Github-Metrics",
+          href: "https://github.com/abhub23/stealth",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/agenticai.png",
     },
     {
       title: "Draw",
