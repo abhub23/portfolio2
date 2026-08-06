@@ -169,36 +169,6 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       image: "/purgeai.png",
     },
     {
-      title: "Privado",
-      href: "https://privado.abdullahtech.dev",
-      dates: "June 2025 - August 2025",
-      active: true,
-      description:
-        "Privado is a fast, secure private chat app powered by Socket.IO. Instantly connect, message friends, and enjoy real-time private conversations with no distractions. Simple, smooth, and built for people who value privacy and speed.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "Node.js",
-        "WebSockets",
-        "TailwindCSS",
-        "Socket.IO",
-        "Shadcn UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://privado.abdullahtech.dev",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/abhub23/Web-Socket-Server-Sets",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/privado.png",
-    },
-    {
       title: "Agentic AI",
       href: "https://stealth.abdullahtech.dev",
       dates: "Feb 2026 - Current",
@@ -227,6 +197,36 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
         },
       ],
       image: "/agenticai.png",
+    },
+    {
+      title: "Privado",
+      href: "https://privado.abdullahtech.dev",
+      dates: "June 2025 - August 2025",
+      active: true,
+      description:
+        "Privado is a fast, secure private chat app powered by Socket.IO. Instantly connect, message friends, and enjoy real-time private conversations with no distractions. Simple, smooth, and built for people who value privacy and speed.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "Node.js",
+        "WebSockets",
+        "TailwindCSS",
+        "Socket.IO",
+        "Shadcn UI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://privado.abdullahtech.dev",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/abhub23/Web-Socket-Server-Sets",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/privado.png",
     },
     {
       title: "Draw",
