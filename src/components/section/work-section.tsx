@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { DATA } from "@/data/resume";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "cn";
 
 function LogoImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);

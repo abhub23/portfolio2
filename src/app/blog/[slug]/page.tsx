@@ -1,5 +1,4 @@
 import { allPosts } from "content-collections";
-import { formatDate } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -7,6 +6,17 @@ import { MDXContent } from "@content-collections/mdx/react";
 import { mdxComponents } from "@/mdx-components";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+
+export function formatDate(date: string | Date) {
+  // Use UTC to ensure consistent formatting between server and client
+  const dateObj = typeof date === "string" ? new Date(date) : date;
+  return dateObj.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
 
 function getSortedPosts() {
   return [...allPosts].sort((a, b) => {

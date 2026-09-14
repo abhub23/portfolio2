@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "cn";
 import { motion, type MotionValue, useMotionValue, useSpring, useTransform } from "motion/react";
 import { createContext, useContext, useRef, type ReactNode } from "react";
 
