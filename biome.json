@@ -53,6 +53,22 @@
     }
   },
 
+  "overrides": [
+    {
+      "includes": ["**/opengraph-image.tsx", "src/components/mdx/media-container.tsx"],
+      "linter": {
+        "rules": {
+          "performance": {
+            "noImgElement": "off"
+          },
+          "a11y": {
+            "useMediaCaption": "off"
+          }
+        }
+      }
+    }
+  ],
+
   "css": {
     "parser": {
       "tailwindDirectives": true
