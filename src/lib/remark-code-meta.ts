@@ -1,26 +1,35 @@
+import type { Nodes, Root } from "mdast";
+
+interface CodeMetaData {
+  hProperties?: Record<string, string>;
+}
+
 export function remarkCodeMeta() {
-  return (tree: any) => {
-    const walk = (node: any) => {
-      if (!node || typeof node !== "object") return;
-
+  return (tree: Root) => {
+    const walk = (node: Nodes) => {
       if (node.type === "code") {
-        const meta: string | undefined = node.meta;
+        const meta = node.meta ?? undefined;
         if (meta) {
-          node.data ||= {};
-          node.data.hProperties ||= {};
+          if (!node.data) {
+            node.data = {};
+          }
+          const data = node.data as CodeMetaData;
+          if (!data.hProperties) {
+            data.hProperties = {};
+          }
+          const hProperties = data.hProperties;
 
-          node.data.hProperties["data-meta"] = meta;
+          hProperties["data-meta"] = meta;
 
           const titleMatch = meta.match(/title="([^"]+)"/);
           if (titleMatch?.[1]) {
-            node.data.hProperties["data-title"] = titleMatch[1];
+            hProperties["data-title"] = titleMatch[1];
           }
         }
       }
 
-      const children = node.children;
-      if (Array.isArray(children)) {
-        for (const child of children) walk(child);
+      if ("children" in node) {
+        for (const child of node.children) walk(child);
       }
     };
 
