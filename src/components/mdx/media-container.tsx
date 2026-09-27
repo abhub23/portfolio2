@@ -15,7 +15,7 @@ export function MediaContainer({
 }: MediaContainerProps) {
   return (
     <div
-      className={`relative flex h-[300px] w-full items-center justify-center overflow-hidden rounded-lg ring-4 ring-muted ${className}`}
+      className={`relative flex h-75 w-full items-center justify-center overflow-hidden rounded-lg ring-4 ring-muted ${className}`}
     >
       {type === "image" ? (
         <Image src={src} alt={alt} fill unoptimized className="object-cover object-center" />

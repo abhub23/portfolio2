@@ -3,15 +3,23 @@
 import { cn } from "cn";
 import { Check, Copy } from "lucide-react";
 import { type ComponentProps, useEffect, useRef, useState } from "react";
-import { codeToHtml } from "shiki/bundle/web";
+import {
+  type BundledLanguage,
+  bundledLanguages,
+  codeToHtml,
+  type PlainTextLanguage,
+} from "shiki/bundle/web";
 import { Button } from "../ui/button";
 
 type CodeBlockProps = ComponentProps<"pre">;
+type HighlightLanguage = BundledLanguage | PlainTextLanguage;
 
-function extractLanguage(className?: string): string {
-  if (!className) return "plaintext";
-  const match = className.match(/language-([a-z0-9-]+)/i);
-  return match ? match[1] : "plaintext";
+function extractLanguage(className?: string): HighlightLanguage {
+  const match = className?.match(/language-([a-z0-9-]+)/i);
+  const lang = match?.[1]?.toLowerCase();
+  if (!lang) return "plaintext";
+  if (lang === "text" || lang === "txt" || lang === "plain") return "plaintext";
+  return lang in bundledLanguages ? (lang as BundledLanguage) : "plaintext";
 }
 
 export function CodeBlock({ children, ...props }: CodeBlockProps) {
@@ -34,7 +42,7 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
     const nextClassName = codeEl.className || "";
 
     void codeToHtml(codeText, {
-      lang: lang as any,
+      lang,
       themes: {
         light: "github-light",
         dark: "github-dark",

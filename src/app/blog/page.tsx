@@ -71,7 +71,7 @@ export default async function BlogPage({
                       className="group flex cursor-pointer items-start gap-x-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       href={`/blog/${slug}`}
                     >
-                      <span className="mt-[5px] font-medium font-mono text-xs tabular-nums">
+                      <span className="mt-1.25 font-medium font-mono text-xs tabular-nums">
                         {String(indexNumber).padStart(2, "0")}.
                       </span>
                       <div className="flex flex-1 flex-col gap-y-2">
