@@ -20,6 +20,7 @@ export function MediaContainer({
       {type === "image" ? (
         <Image src={src} alt={alt} fill unoptimized className="object-cover object-center" />
       ) : (
+        // biome-ignore lint/a11y/useMediaCaption: videos are muted/no audio content
         <video
           src={src}
           className="h-full max-h-full w-full max-w-full object-cover object-center"
