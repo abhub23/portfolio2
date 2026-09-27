@@ -1,10 +1,10 @@
+import { cn } from "cn";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
-import { cn } from "cn";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
@@ -79,14 +79,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased relative",
+          "relative min-h-screen bg-background font-sans antialiased",
           geist.variable,
           geistMono.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <TooltipProvider delayDuration={0}>
-            <div className="absolute inset-0 top-0 left-0 right-0 h-25 overflow-hidden z-0">
+            <div className="absolute inset-0 top-0 right-0 left-0 z-0 h-25 overflow-hidden">
               <FlickeringGrid
                 className="h-full w-full"
                 squareSize={2}
@@ -97,7 +97,7 @@ export default function RootLayout({
                 }}
               />
             </div>
-            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+            <div className="relative z-10 mx-auto max-w-2xl px-6 py-12 pb-24 sm:py-24">
               {children}
             </div>
             <Navbar />
