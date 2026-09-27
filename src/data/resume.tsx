@@ -1,16 +1,15 @@
-import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
-import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
-import { Typescript } from "@/components/ui/svgs/typescript";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Python } from "@/components/ui/svgs/python";
-import { Golang } from "@/components/ui/svgs/golang";
-import { Redis } from "@/components/ui/svgs/redis";
-import { Postgresql } from "@/components/ui/svgs/postgresql";
+import { Icons } from "@/components/icons";
 import { Docker } from "@/components/ui/svgs/docker";
+import { Golang } from "@/components/ui/svgs/golang";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-
+import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
+import { Nodejs } from "@/components/ui/svgs/nodejs";
+import { Postgresql } from "@/components/ui/svgs/postgresql";
+import { Python } from "@/components/ui/svgs/python";
+import { ReactLight } from "@/components/ui/svgs/reactLight";
+import { Redis } from "@/components/ui/svgs/redis";
+import { Typescript } from "@/components/ui/svgs/typescript";
 
 export const DATA = {
   name: "Abdullah Mukri",
@@ -20,13 +19,11 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
     "Full stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
-  summary:
-    `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
+  summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
 
 I read, write [blogs](/blog), and learn out loud. More on my [resume](https://drive.google.com/file/d/1sEduTofbENUHMyl2njFMwcbI-mu7T9Sx/view).
 
 Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
-
 
   avatarUrl: "/pf.jpg",
   skills: [
@@ -39,7 +36,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
     { name: "Postgres", icon: Postgresql },
     { name: "Docker", icon: Docker },
     { name: "Kubernetes", icon: Kubernetes },
-    { name: "Redis", icon: Redis }
+    { name: "Redis", icon: Redis },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -135,7 +132,6 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       description: "Contributed to documentation improvements",
       dates: "2024",
     },
-
   ],
   projects: [
     {
@@ -175,15 +171,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       active: true,
       description:
         "Now you can Compare your Github Stats with the best in the world, be it Torvalds, Karpathy, Harkirat and who not. You think you're doing your best? have better PR's than someone? Lets see here mate.",
-      technologies: [
-        "Typescript",
-        "React",
-        "Express",
-        "TailwindCSS",
-        "Vite",
-        "Gemini",
-        "Zustand",
-      ],
+      technologies: ["Typescript", "React", "Express", "TailwindCSS", "Vite", "Gemini", "Zustand"],
       links: [
         {
           type: "Website",
@@ -259,4 +247,4 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       image: "",
     },
   ],
-}
+};

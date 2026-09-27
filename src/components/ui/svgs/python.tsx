@@ -9,7 +9,15 @@ const Python = (props: SVGProps<SVGSVGElement>) => (
     xmlSpace="preserve"
     {...props}
   >
-    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="63.8159" y1="56.6829" x2="118.4934" y2="1.8225" gradientTransform="matrix(1 0 0 -1 -53.2974 66.4321)">
+    <linearGradient
+      id="SVGID_1_"
+      gradientUnits="userSpaceOnUse"
+      x1="63.8159"
+      y1="56.6829"
+      x2="118.4934"
+      y2="1.8225"
+      gradientTransform="matrix(1 0 0 -1 -53.2974 66.4321)"
+    >
       <stop offset="0" style={{ stopColor: "#387EB8" }} />
       <stop offset="1" style={{ stopColor: "#366994" }} />
     </linearGradient>
@@ -17,7 +25,15 @@ const Python = (props: SVGProps<SVGSVGElement>) => (
       fill="url(#SVGID_1_)"
       d="M55.023-0.077c-25.971,0-26.25,10.081-26.25,12.156c0,3.148,0,12.594,0,12.594h26.75v3.781 c0,0-27.852,0-37.375,0c-7.949,0-17.938,4.833-17.938,26.25c0,19.673,7.792,27.281,15.656,27.281c2.335,0,9.344,0,9.344,0 s0-9.765,0-13.125c0-5.491,2.721-15.656,15.406-15.656c15.91,0,19.971,0,26.531,0c3.902,0,14.906-1.696,14.906-14.406 c0-13.452,0-17.89,0-24.219C82.054,11.426,81.515-0.077,55.023-0.077z M40.273,8.392c2.662,0,4.813,2.15,4.813,4.813 c0,2.661-2.151,4.813-4.813,4.813s-4.813-2.151-4.813-4.813C35.46,10.542,37.611,8.392,40.273,8.392z"
     />
-    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="97.0444" y1="21.6321" x2="155.6665" y2="-34.5308" gradientTransform="matrix(1 0 0 -1 -53.2974 66.4321)">
+    <linearGradient
+      id="SVGID_2_"
+      gradientUnits="userSpaceOnUse"
+      x1="97.0444"
+      y1="21.6321"
+      x2="155.6665"
+      y2="-34.5308"
+      gradientTransform="matrix(1 0 0 -1 -53.2974 66.4321)"
+    >
       <stop offset="0" style={{ stopColor: "#FFE052" }} />
       <stop offset="1" style={{ stopColor: "#FFC331" }} />
     </linearGradient>

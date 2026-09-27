@@ -22,10 +22,7 @@ export interface PaginationResult<T> {
 /**
  * Paginate an array of items
  */
-export function paginate<T>(
-  items: T[],
-  options: PaginationOptions
-): PaginationResult<T> {
+export function paginate<T>(items: T[], options: PaginationOptions): PaginationResult<T> {
   const { page, pageSize } = options;
   const totalItems = items.length;
   const totalPages = Math.ceil(totalItems / pageSize);
@@ -50,10 +47,7 @@ export function paginate<T>(
 /**
  * Get pagination metadata without slicing the array
  */
-export function getPaginationMeta(
-  totalItems: number,
-  options: PaginationOptions
-) {
+export function getPaginationMeta(totalItems: number, options: PaginationOptions) {
   const { page, pageSize } = options;
   const totalPages = Math.ceil(totalItems / pageSize);
 
@@ -73,7 +67,7 @@ export function getPaginationMeta(
 export function normalizePage(page: number | string | undefined, maxPage: number): number {
   if (typeof page === "string") {
     const parsed = parseInt(page, 10);
-    if (isNaN(parsed) || parsed < 1) return 1;
+    if (Number.isNaN(parsed) || parsed < 1) return 1;
     return Math.min(parsed, maxPage);
   }
   if (typeof page === "number") {
@@ -82,4 +76,3 @@ export function normalizePage(page: number | string | undefined, maxPage: number
   }
   return 1;
 }
-

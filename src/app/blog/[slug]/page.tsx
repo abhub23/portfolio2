@@ -1,11 +1,11 @@
-import { allPosts } from "content-collections";
-import { DATA } from "@/data/resume";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { MDXContent } from "@content-collections/mdx/react";
-import { mdxComponents } from "@/mdx-components";
-import Link from "next/link";
+import { allPosts } from "content-collections";
 import { ChevronLeft } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { DATA } from "@/data/resume";
+import { mdxComponents } from "@/mdx-components";
 
 export function formatDate(date: string | Date) {
   // Use UTC to ensure consistent formatting between server and client
@@ -47,12 +47,7 @@ export async function generateMetadata({
     return undefined;
   }
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post;
+  const { title, publishedAt: publishedTime, summary: description, image } = post;
 
   return {
     title,
@@ -91,9 +86,7 @@ export default async function Blog({
 }) {
   const { slug } = await params;
   const sortedPosts = getSortedPosts();
-  const currentIndex = sortedPosts.findIndex(
-    (p) => p._meta.path.replace(/\.mdx$/, "") === slug
-  );
+  const currentIndex = sortedPosts.findIndex((p) => p._meta.path.replace(/\.mdx$/, "") === slug);
   const post = sortedPosts[currentIndex];
 
   if (!post) {
@@ -107,9 +100,7 @@ export default async function Blog({
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     description: post.summary,
-    image: post.image
-      ? `${DATA.url}${post.image}`
-      : `${DATA.url}/blog/${slug}/opengraph-image`,
+    image: post.image ? `${DATA.url}${post.image}` : `${DATA.url}/blog/${slug}/opengraph-image`,
     url: `${DATA.url}/blog/${slug}`,
     author: {
       "@type": "Person",
@@ -126,36 +117,35 @@ export default async function Blog({
           __html: jsonLdContent,
         }}
       />
-      <div className="flex justify-start gap-4 items-center">
-        <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label="Back to Blog">
-          <ChevronLeft className="size-3 group-hover:-translate-x-px transition-transform" />
+      <div className="flex items-center justify-start gap-4">
+        <Link
+          href="/blog"
+          className="group mb-6 inline-flex items-center gap-1 rounded-lg border border-border px-2 py-1 text-muted-foreground text-sm transition-colors hover:text-foreground"
+          aria-label="Back to Blog"
+        >
+          <ChevronLeft className="size-3 transition-transform group-hover:-translate-x-px" />
           Back to Blog
         </Link>
       </div>
       <div className="flex flex-col gap-4">
-        <h1 className="title font-semibold text-3xl md:text-4xl tracking-tighter leading-tight">
+        <h1 className="title font-semibold text-3xl leading-tight tracking-tighter md:text-4xl">
           {post.title}
         </h1>
-        <p className="text-sm text-muted-foreground">
-          {formatDate(post.publishedAt)}
-        </p>
+        <p className="text-muted-foreground text-sm">{formatDate(post.publishedAt)}</p>
       </div>
       <div className="my-6 flex w-full items-center">
         <div
-          className="flex-1 h-px bg-border"
+          className="h-px flex-1 bg-border"
           style={{
-            maskImage:
-              "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
+            maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
             WebkitMaskImage:
               "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
           }}
         />
       </div>
-      <article className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+      <article className="prose dark:prose-invert max-w-full text-pretty font-sans text-muted-foreground leading-relaxed">
         <MDXContent code={post.mdx} components={mdxComponents} />
       </article>
-
-
     </section>
   );
 }
