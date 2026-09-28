@@ -2,6 +2,7 @@ import type { SVGProps } from "react";
 
 const Kubernetes = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 722.8 702">
+    <title>Kubernetes</title>
     <path
       style={{
         fill: "#326ce5",
