@@ -99,6 +99,7 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
         </Button>
         {html && (
           <div className="p-3">
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: html is shiki's own output for trusted MDX code fences, not user input */}
             <code className={`shiki ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         )}
