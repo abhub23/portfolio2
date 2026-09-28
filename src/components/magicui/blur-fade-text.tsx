@@ -44,6 +44,7 @@ const BlurFadeText = ({
           };
           return (
             <motion.span
+              // biome-ignore lint/suspicious/noArrayIndexKey: characters are positional; i also drives the stagger delay
               key={i}
               initial="hidden"
               animate="visible"
