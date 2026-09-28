@@ -113,6 +113,7 @@ export default async function Blog({
       <script
         type="application/ld+json"
         suppressHydrationWarning
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD must be injected as raw JSON; "<" is escaped to "\u003c" above
         dangerouslySetInnerHTML={{
           __html: jsonLdContent,
         }}
