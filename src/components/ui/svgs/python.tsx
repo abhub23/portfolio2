@@ -9,6 +9,7 @@ const Python = (props: SVGProps<SVGSVGElement>) => (
     xmlSpace="preserve"
     {...props}
   >
+    <title>Python</title>
     <linearGradient
       id="SVGID_1_"
       gradientUnits="userSpaceOnUse"
