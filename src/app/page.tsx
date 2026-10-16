@@ -32,7 +32,7 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="flex-none">
-              <Avatar className="size-24 rounded-full border shadow-lg ring-4 ring-muted md:size-32">
+              <Avatar className="size-24 rounded-full border shadow-lg md:size-32">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
@@ -99,13 +99,13 @@ export default function Page() {
                       <Image
                         src={education.logoUrl}
                         alt={education.school}
-                        width={40}
-                        height={40}
+                        width={44}
+                        height={44}
                         unoptimized
-                        className="size-8 flex-none overflow-hidden rounded-full border object-contain object-center p-1 shadow ring-2 ring-border md:size-10"
+                        className="size-9 flex-none overflow-hidden rounded-full object-contain object-center p-1 md:size-11"
                       />
                     ) : (
-                      <div className="size-8 flex-none rounded-full border bg-muted p-1 shadow ring-2 ring-border md:size-10" />
+                      <div className="size-9 flex-none rounded-full bg-muted md:size-11" />
                     )}
                     <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                       <div className="flex items-center gap-2 font-semibold leading-none">
