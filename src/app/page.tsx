@@ -56,6 +56,7 @@ export default function Page() {
                         href={href}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
+                        className="font-normal"
                       >
                         {children}
                       </a>
