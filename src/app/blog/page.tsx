@@ -74,7 +74,7 @@ export default async function BlogPage({
                       <span className="mt-1.25 font-medium font-mono text-xs tabular-nums">
                         {String(indexNumber).padStart(2, "0")}.
                       </span>
-                      <div className="flex flex-1 items-baseline justify-between gap-x-4">
+                      <div className="flex flex-1 flex-col gap-y-2">
                         <p className="font-medium text-lg tracking-tight">
                           <span className="transition-colors group-hover:text-foreground">
                             {post.title}
@@ -84,9 +84,7 @@ export default async function BlogPage({
                             />
                           </span>
                         </p>
-                        <p className="flex-none whitespace-nowrap text-muted-foreground text-xs tabular-nums">
-                          {post.publishedAt}
-                        </p>
+                        <p className="text-muted-foreground text-xs">{post.publishedAt}</p>
                       </div>
                     </Link>
                   </BlurFade>
