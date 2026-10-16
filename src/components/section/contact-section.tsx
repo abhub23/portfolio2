@@ -22,7 +22,7 @@ export default function ContactSection() {
       <div className="relative flex flex-col items-center gap-4 text-center">
         <h2 className="font-bold text-3xl tracking-tighter sm:text-5xl">Get in Touch</h2>
         <p className="mx-auto max-w-lg text-balance text-muted-foreground">
-          Want to chat? Just shoot me a dm on{" "}
+          Want to chat? Just shoot me a DM on{" "}
           <Link
             href={DATA.contact.social.X.url}
             target="_blank"
