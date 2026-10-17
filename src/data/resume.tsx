@@ -18,8 +18,6 @@ export const DATA = {
   location: "Mumbai, India",
   locationLink: "https://www.google.com/maps/place/mumbai",
   headline: "Full stack Software Engineer",
-  description:
-    "Full stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
   summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
 
 I read, write [blogs](/blog), and learn out loud. More on my [resume](https://drive.google.com/file/d/1iT8hjMTnOH07pTSLjFe1-P0HS479VsRY/view).

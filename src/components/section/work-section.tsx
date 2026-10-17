@@ -15,9 +15,7 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return (
-      <div className="size-12 flex-none rounded-full bg-muted md:size-11" />
-    );
+    return <div className="size-12 flex-none rounded-full bg-muted md:size-11" />;
   }
 
   return (

@@ -118,7 +118,7 @@ export default async function Image() {
             )}
             <div style={styles.mainContainer}>
               <div style={styles.title}>{DATA.name}</div>
-              {DATA.description && <div style={styles.description}>{DATA.description}</div>}
+              {DATA.headline && <div style={styles.description}>{DATA.headline}</div>}
             </div>
           </div>
         </div>

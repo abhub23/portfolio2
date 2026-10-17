@@ -1,7 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sunrise } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import LocalTime from "@/components/local-time";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import ContactSection from "@/components/section/contact-section";
@@ -16,20 +17,26 @@ export default function Page() {
   return (
     <main className="relative flex min-h-dvh flex-col gap-14">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
+        <div className="mx-auto w-full max-w-2xl">
           <div className="flex flex-row items-start justify-between gap-2">
-            <div className="flex flex-col gap-2">
+            <div className="flex min-w-0 flex-col gap-3">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="font-semibold text-3xl tracking-tighter sm:text-4xl lg:text-5xl"
+                className="pt-4 font-semibold text-3xl tracking-tighter sm:text-4xl lg:text-5xl"
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
-              <BlurFadeText
-                className="max-w-150 text-muted-foreground md:text-lg lg:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-muted/60 px-3 py-1.5 text-sm">
+                  <span className="size-2 rounded-full bg-green-500" />
+                  <span className="font-medium">{DATA.location}</span>
+                  <span className="text-muted-foreground">·</span>
+                  <Sunrise className="size-4 text-muted-foreground" aria-hidden />
+                  <span className="text-muted-foreground">
+                    <LocalTime timeZone="Asia/Kolkata" />
+                  </span>
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="flex-none">
               <Avatar className="size-24 rounded-full border shadow-lg md:size-32">
