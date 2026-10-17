@@ -243,7 +243,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
+      image: "/draw.png",
     },
   ],
 };
