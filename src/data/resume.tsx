@@ -15,8 +15,9 @@ export const DATA = {
   name: "Abdullah Mukri",
   initials: "AB",
   url: "https://abdullahtech.dev",
-  location: "San Francisco, CA",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
+  location: "Mumbai, India",
+  locationLink: "https://www.google.com/maps/place/mumbai",
+  headline: "Full stack Software Engineer",
   description:
     "Full stack Software Engineer crafting products with extreme ownership of what I build from architecture to deployment. Open to connect.",
   summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
@@ -140,13 +141,13 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       dates: "June 2025 - Oct 2025",
       active: true,
       description:
-        "Purge AI is an AI-powered tool that analyzes GitHub PRs using LLMs and metadata extraction. It streamlines developer workflows and dynamic adaptation to different repositories, boosting speed, consistency, and review efficiency.",
+        "Purge AI is an AI-powered tool that analyzes GitHub PRs using LLMs and metadata extraction. It streamlines developer workflows and dynamic adaptation to different repositories, and review efficiency.",
       technologies: [
         "Typescript",
         "Next.js",
         "Node.js",
-        "PostgreSQL",
         "Prisma",
+        "PostgreSQL",
         "TailwindCSS",
         "Shadcn UI",
       ],
@@ -192,15 +193,15 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       dates: "June 2025 - August 2025",
       active: true,
       description:
-        "Privado is a fast, secure private chat app powered by Socket.IO. Instantly connect, message friends, and enjoy real-time private conversations with no distractions. Simple, smooth, and built for people who value privacy and speed.",
+        "Privado is a fast, secure private chat app powered by Socket.IO. Instantly connect, message friends, and enjoy real-time private conversations with no distractions. ",
       technologies: [
         "Next.js",
         "Typescript",
         "Node.js",
+        "Shadcn",
         "WebSockets",
         "TailwindCSS",
         "Socket.IO",
-        "Shadcn UI",
       ],
       links: [
         {
