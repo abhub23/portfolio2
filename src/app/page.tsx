@@ -27,19 +27,19 @@ export default function Page() {
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
-                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-muted/60 px-3 py-1.5 text-sm">
-                  <span className="size-2 rounded-full bg-green-500" />
+                <div className="inline-flex w-full max-w-full items-center justify-center gap-1.5 rounded-full bg-muted/60 px-2.5 py-1.5 text-sm sm:w-fit sm:justify-start sm:gap-2 sm:px-3">
+                  <span className="size-2 shrink-0 rounded-full bg-green-500" />
                   <span className="font-medium">{DATA.location}</span>
                   <span className="text-muted-foreground">·</span>
-                  <Sunrise className="size-4 text-muted-foreground" aria-hidden />
-                  <span className="text-muted-foreground">
+                  <Sunrise className="hidden size-4 shrink-0 text-muted-foreground sm:block" aria-hidden />
+                  <span className="whitespace-nowrap text-muted-foreground">
                     <LocalTime timeZone="Asia/Kolkata" />
                   </span>
                 </div>
               </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="flex-none">
-              <Avatar className="size-24 rounded-full border shadow-lg md:size-32">
+              <Avatar className="size-20 rounded-full border shadow-lg md:size-32">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
