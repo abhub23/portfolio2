@@ -169,7 +169,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       dates: "Feb 2026 - Current",
       active: true,
       description:
-        "Now you can Compare your Github Stats with the best in the world, be it Torvalds, Karpathy, Harkirat and who not. You think you're doing your best? have better PR's than someone? Lets see here mate.",
+        "An AI platform that turns plain prompts into production-ready agents, with memory, tool use and evals built in. Ship real workflows in minutes, not sprints, and keep your data under control.",
       technologies: ["Typescript", "React", "Express", "TailwindCSS", "Vite", "Gemini", "Zustand"],
       links: [
         {
