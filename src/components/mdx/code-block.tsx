@@ -60,7 +60,11 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
       })
       .catch((error) => {
         console.error("Failed to highlight code:", error);
-        setRenderState({ html: "", className: nextClassName, title: nextTitle });
+        setRenderState({
+          html: "",
+          className: nextClassName,
+          title: nextTitle,
+        });
       });
   }, []);
 

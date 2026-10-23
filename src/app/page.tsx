@@ -31,7 +31,10 @@ export default function Page() {
                   <span className="size-2 shrink-0 rounded-full bg-green-500" />
                   <span className="font-medium">{DATA.location}</span>
                   <span className="text-muted-foreground">·</span>
-                  <Sunrise className="hidden size-4 shrink-0 text-muted-foreground sm:block" aria-hidden />
+                  <Sunrise
+                    className="hidden size-4 shrink-0 text-muted-foreground sm:block"
+                    aria-hidden
+                  />
                   <span className="whitespace-nowrap text-muted-foreground">
                     <LocalTime timeZone="Asia/Kolkata" />
                   </span>
