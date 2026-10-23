@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { DATA } from "@/data/resume";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt = "Blog";
@@ -38,13 +37,6 @@ const styles = {
     border: "1px solid #e5e5e5",
     borderRadius: "12px",
   },
-  imageSection: {
-    position: "absolute",
-    top: "40px",
-    left: "40px",
-    display: "flex",
-    alignItems: "center",
-  },
   mainContainer: {
     display: "flex",
     flexDirection: "column",
@@ -54,16 +46,9 @@ const styles = {
     width: "100%",
     position: "relative",
   },
-  image: {
-    width: "140px",
-    height: "140px",
-    borderRadius: "50%",
-    border: "4px solid #e5e5e5",
-    objectFit: "cover",
-  },
   title: {
     fontFamily: "Clash Display",
-    fontSize: "48px",
+    fontSize: "60px",
     fontWeight: "600",
     lineHeight: "1.1",
     textAlign: "left",
@@ -73,7 +58,7 @@ const styles = {
     maxWidth: "900px",
   },
   description: {
-    fontSize: "20px",
+    fontSize: "26px",
     fontWeight: "400",
     lineHeight: "1.5",
     textAlign: "left",
@@ -89,17 +74,11 @@ export default async function Image() {
     const fontData = await loadOgFonts();
     const title = "Blog";
     const description = "Thoughts on software development, life, and more.";
-    const imageUrl = DATA.avatarUrl ? new URL(DATA.avatarUrl, DATA.url).toString() : undefined;
 
     return new ImageResponse(
       <div style={styles.outerWrapper}>
         <div style={styles.middleWrapper}>
           <div style={styles.wrapper}>
-            {imageUrl && (
-              <div style={styles.imageSection}>
-                <img src={imageUrl} alt="Blog" style={styles.image} />
-              </div>
-            )}
             <div style={styles.mainContainer}>
               <div style={styles.title}>{title}</div>
               {description && <div style={styles.description}>{description}</div>}
