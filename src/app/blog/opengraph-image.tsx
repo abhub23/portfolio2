@@ -57,7 +57,7 @@ const styles = {
   image: {
     width: "140px",
     height: "140px",
-    borderRadius: "24px",
+    borderRadius: "50%",
     border: "4px solid #e5e5e5",
     objectFit: "cover",
   },
