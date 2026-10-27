@@ -20,7 +20,7 @@ export const DATA = {
   headline: "Full stack Software Engineer",
   summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
 
-I read, write [blogs](/blog), and learn out loud. More on my [resume](https://drive.google.com/file/d/1iT8hjMTnOH07pTSLjFe1-P0HS479VsRY/view).
+I read, write [blogs](/blog) and learn out loud. More on my [resume](https://drive.google.com/file/d/1iT8hjMTnOH07pTSLjFe1-P0HS479VsRY/view).
 
 Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
 
@@ -82,7 +82,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       href: "https://sylow.ai",
       badges: [],
       location: "Remote",
-      title: "Fullstack Software Engineer",
+      title: "Full Stack Engineer",
       logoUrl: "/company/sylow.png",
       start: "Oct 2025",
       end: "Feb 2026",
@@ -94,7 +94,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       badges: [],
       href: "https://kanexon.com",
       location: "Remote",
-      title: "Fullstack Software Developer",
+      title: "Full Stack Engineer",
       logoUrl: "/company/kanexon.png",
       start: "Feb 2025",
       end: "June 2025",
@@ -106,7 +106,7 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
       href: "https://www.oasisinfobyte.com/",
       badges: [],
       location: "Santa Clara, CA",
-      title: "Software Development Engineer, Intern",
+      title: "SDE Intern",
       logoUrl: "/company/oasis.jpg",
       start: "Oct 2023",
       end: "Apr 2024",
