@@ -53,7 +53,7 @@ export function GET() {
     `- [Home](${DATA.url}/): About, work experience, education, skills, projects, and contact.`,
     `- [Blog](${DATA.url}/blog): Index of all blog posts.`,
     "",
-    "## Work Experience",
+    "## Experience",
     "",
     work,
     "",

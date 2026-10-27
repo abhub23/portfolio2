@@ -1,6 +1,8 @@
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Icons } from "@/components/icons";
+import { Bun } from "@/components/ui/svgs/bun";
 import { Docker } from "@/components/ui/svgs/docker";
+import { Drizzle } from "@/components/ui/svgs/drizzle";
 import { Golang } from "@/components/ui/svgs/golang";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
@@ -18,7 +20,7 @@ export const DATA = {
   location: "Mumbai, India",
   locationLink: "https://www.google.com/maps/place/mumbai",
   headline: "Full stack Software Engineer",
-  summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev), used by thousands of developers. I write clean, maintainable code.
+  summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev) used by thousands of developers. I write clean, maintainable code.
 
 I read, write [blogs](/blog) and learn out loud. More on my [resume](https://drive.google.com/file/d/1iT8hjMTnOH07pTSLjFe1-P0HS479VsRY/view).
 
@@ -30,10 +32,12 @@ Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
     { name: "Next.js", icon: NextjsIconDark },
     { name: "Typescript", icon: Typescript },
     { name: "Node.js", icon: Nodejs },
+    { name: "Bun", icon: Bun },
     { name: "Python", icon: Python },
     { name: "Go", icon: Golang },
     { name: "Postgres", icon: Postgresql },
     { name: "Docker", icon: Docker },
+    { name: "Drizzle ORM", icon: Drizzle },
     { name: "Kubernetes", icon: Kubernetes },
     { name: "Redis", icon: Redis },
   ],
