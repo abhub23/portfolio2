@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Connection pooling from app instances through PgBouncer to PostgreSQL</title>
+  <desc id="diagram-desc">Three app instances each with a client pool of ten connections connect through an optional PgBouncer pool of twenty server connections to PostgreSQL, which allows one hundred connections.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" rx="16" fill="#f8fafc" />
+
+  <text x="40" y="48" fill="#0f172a" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700">Connection pooling: two layers to exhaust</text>
+
+  <text x="40" y="86" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">App instances</text>
+  <text x="330" y="86" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">PgBouncer (optional)</text>
+  <text x="680" y="86" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">PostgreSQL</text>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+    <rect x="40" y="100" width="210" height="64" rx="10" fill="#eff6ff" stroke="#bfdbfe" />
+    <text x="58" y="126" fill="#0f172a" font-size="14" font-weight="700">api-1</text>
+    <text x="58" y="146" fill="#475569" font-size="12">pool max = 10</text>
+
+    <rect x="40" y="184" width="210" height="64" rx="10" fill="#eff6ff" stroke="#bfdbfe" />
+    <text x="58" y="210" fill="#0f172a" font-size="14" font-weight="700">api-2</text>
+    <text x="58" y="230" fill="#475569" font-size="12">pool max = 10</text>
+
+    <rect x="40" y="268" width="210" height="64" rx="10" fill="#eff6ff" stroke="#bfdbfe" />
+    <text x="58" y="294" fill="#0f172a" font-size="14" font-weight="700">api-3</text>
+    <text x="58" y="314" fill="#475569" font-size="12">pool max = 10</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="252" y1="132" x2="326" y2="132" />
+    <line x1="252" y1="216" x2="326" y2="216" />
+    <line x1="252" y1="300" x2="326" y2="300" />
+  </g>
+  <text x="289" y="118" fill="#64748b" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" text-anchor="middle">3 × 10 = 30</text>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+    <rect x="330" y="110" width="270" height="212" rx="12" fill="#fef3c7" stroke="#fcd34d" />
+    <text x="348" y="140" fill="#0f172a" font-size="15" font-weight="700">PgBouncer</text>
+    <text x="348" y="166" fill="#475569" font-size="12">pool_mode = transaction</text>
+    <text x="348" y="188" fill="#475569" font-size="12">default_pool_size = 20</text>
+    <text x="348" y="210" fill="#475569" font-size="12">max_client_conn = 1000</text>
+    <text x="348" y="244" fill="#92400e" font-size="12" font-weight="600">Queues clients here</text>
+    <text x="348" y="264" fill="#92400e" font-size="12" font-weight="600">when the app pool is full</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="602" y1="216" x2="674" y2="216" />
+  </g>
+  <text x="638" y="204" fill="#64748b" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" text-anchor="middle">≤ 20</text>
+
+  <g font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+    <rect x="680" y="110" width="240" height="212" rx="12" fill="#dcfce7" stroke="#86efac" />
+    <text x="698" y="140" fill="#0f172a" font-size="15" font-weight="700">PostgreSQL</text>
+    <text x="698" y="166" fill="#475569" font-size="12">max_connections = 100</text>
+    <text x="698" y="188" fill="#475569" font-size="12">superuser_reserved = 3</text>
+    <text x="698" y="210" fill="#475569" font-size="12">≈ 10 MB per backend</text>
+    <text x="698" y="244" fill="#166534" font-size="12" font-weight="600">One backend process</text>
+    <text x="698" y="264" fill="#166534" font-size="12" font-weight="600">per connection</text>
+  </g>
+
+  <text x="40" y="386" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="12">Exhaustion happens at the app pool first (requests wait), then at max_connections (FATAL: sorry, too many clients already).</text>
+</svg>
