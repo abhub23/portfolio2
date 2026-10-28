@@ -3,14 +3,16 @@ import type { MetadataRoute } from "next";
 import { DATA } from "@/data/resume";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts: MetadataRoute.Sitemap = allPosts.map((post) => ({
+  const visiblePosts = allPosts.filter((post) => !post.hidden);
+
+  const posts: MetadataRoute.Sitemap = visiblePosts.map((post) => ({
     url: `${DATA.url}/blog/${post._meta.path.replace(/\.mdx$/, "")}`,
     lastModified: post.updatedAt ?? post.publishedAt,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  const latestPostDate = allPosts.reduce<Date | undefined>((latest, post) => {
+  const latestPostDate = visiblePosts.reduce<Date | undefined>((latest, post) => {
     const date = new Date(post.updatedAt ?? post.publishedAt);
     return !latest || date > latest ? date : latest;
   }, undefined);

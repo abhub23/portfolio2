@@ -4,7 +4,8 @@ import { DATA } from "@/data/resume";
 export const dynamic = "force-static";
 
 export function GET() {
-  const posts = [...allPosts]
+  const posts = allPosts
+    .filter((post) => !post.hidden)
     .sort((a, b) => (new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1))
     .map((post) => {
       const slug = post._meta.path.replace(/\.mdx$/, "");
