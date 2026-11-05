@@ -2,8 +2,8 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 interface OgFontData {
-  cabinetGrotesk: ArrayBuffer;
-  clashDisplay: ArrayBuffer;
+  funnelDisplayRegular: ArrayBuffer;
+  funnelDisplaySemibold: ArrayBuffer;
 }
 
 let cachedFonts: OgFontData | null = null;
@@ -22,14 +22,14 @@ export async function loadOgFonts(): Promise<OgFontData | null> {
   if (cachedFonts) return cachedFonts;
 
   try {
-    const [cabinetGrotesk, clashDisplay] = await Promise.all([
-      readFile(join(process.cwd(), "public/fonts/CabinetGrotesk-Medium.ttf")),
-      readFile(join(process.cwd(), "public/fonts/ClashDisplay-Semibold.ttf")),
+    const [funnelDisplayRegular, funnelDisplaySemibold] = await Promise.all([
+      readFile(join(process.cwd(), "public/fonts/FunnelDisplay-Regular.woff")),
+      readFile(join(process.cwd(), "public/fonts/FunnelDisplay-Semibold.woff")),
     ]);
 
     cachedFonts = {
-      cabinetGrotesk: toArrayBuffer(cabinetGrotesk),
-      clashDisplay: toArrayBuffer(clashDisplay),
+      funnelDisplayRegular: toArrayBuffer(funnelDisplayRegular),
+      funnelDisplaySemibold: toArrayBuffer(funnelDisplaySemibold),
     };
     return cachedFonts;
   } catch (error) {

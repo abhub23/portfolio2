@@ -47,8 +47,8 @@ const styles = {
     position: "relative",
   },
   title: {
-    fontFamily: "Clash Display",
-    fontSize: "72px",
+    fontFamily: "Funnel Display",
+    fontSize: "88px",
     fontWeight: "600",
     lineHeight: "1.1",
     textAlign: "left",
@@ -58,6 +58,7 @@ const styles = {
     maxWidth: "960px",
   },
   description: {
+    fontFamily: "Funnel Display",
     fontSize: "32px",
     fontWeight: "400",
     lineHeight: "1.5",
@@ -91,20 +92,14 @@ export default async function Image() {
         fonts: fontData
           ? [
               {
-                name: "Cabinet Grotesk",
-                data: fontData.cabinetGrotesk,
+                name: "Funnel Display",
+                data: fontData.funnelDisplayRegular,
                 weight: 400,
                 style: "normal",
               },
               {
-                name: "Cabinet Grotesk",
-                data: fontData.cabinetGrotesk,
-                weight: 700,
-                style: "normal",
-              },
-              {
-                name: "Clash Display",
-                data: fontData.clashDisplay,
+                name: "Funnel Display",
+                data: fontData.funnelDisplaySemibold,
                 weight: 600,
                 style: "normal",
               },
