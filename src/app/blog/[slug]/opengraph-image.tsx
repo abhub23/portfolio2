@@ -1,5 +1,6 @@
 import { allPosts } from "content-collections";
 import { ImageResponse } from "next/og";
+import { ogBackground } from "@/lib/og-background";
 import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt = "Blog Post";
@@ -15,28 +16,31 @@ const styles = {
     width: "100%",
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#ffffff",
-    position: "relative",
-  },
-  middleWrapper: {
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "#ffffff",
-    position: "relative",
-    padding: "40px",
-  },
-  wrapper: {
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
     backgroundColor: "#fafafa",
     position: "relative",
-    padding: "40px",
-    border: "1px solid #e5e5e5",
-    borderRadius: "12px",
+    padding: "80px",
+    overflow: "hidden",
+  },
+  gradient: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    backgroundImage: ogBackground.fade,
+  },
+  grain: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    backgroundImage: ogBackground.grain,
+    backgroundRepeat: "repeat",
+    backgroundSize: "180px 180px",
+    opacity: 0.45,
   },
   mainContainer: {
     display: "flex",
@@ -46,6 +50,7 @@ const styles = {
     height: "100%",
     width: "100%",
     position: "relative",
+    zIndex: 1,
   },
   title: {
     fontFamily: "Funnel Display",
@@ -89,12 +94,10 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     if (!post) {
       return new ImageResponse(
         <div style={styles.outerWrapper}>
-          <div style={styles.middleWrapper}>
-            <div style={styles.wrapper}>
-              <div style={styles.mainContainer}>
-                <div style={styles.title}>Post Not Found</div>
-              </div>
-            </div>
+          <div style={styles.gradient} />
+          <div style={styles.grain} />
+          <div style={styles.mainContainer}>
+            <div style={styles.title}>Post Not Found</div>
           </div>
         </div>,
         {
@@ -126,14 +129,12 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
     return new ImageResponse(
       <div style={styles.outerWrapper}>
-        <div style={styles.middleWrapper}>
-          <div style={styles.wrapper}>
-            <div style={styles.mainContainer}>
-              <div style={styles.title}>{title}</div>
-              {description && <div style={styles.description}>{description}</div>}
-              {publishedDate && <div style={styles.date}>{publishedDate}</div>}
-            </div>
-          </div>
+        <div style={styles.gradient} />
+        <div style={styles.grain} />
+        <div style={styles.mainContainer}>
+          <div style={styles.title}>{title}</div>
+          {description && <div style={styles.description}>{description}</div>}
+          {publishedDate && <div style={styles.date}>{publishedDate}</div>}
         </div>
       </div>,
       {
