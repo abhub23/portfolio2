@@ -1,0 +1,142 @@
+---
+title: "Logical Sharding in Postgres"
+publishedAt: "2026-10-27"
+summary: "How to split one Postgres table by tenant or user without rewriting your whole app."
+hidden: true
+---
+
+# Logical Sharding in Postgres
+
+Logical sharding means splitting a table into logical chunks — usually by `tenant_id` or `user_id` — and routing queries to the right chunk. Postgres doesn't have native sharding, but it has the primitives to fake it well: declarative partitioning, foreign data wrappers, and Citus.
+
+The point isn't to scale to a million users on day one. It's to get the operational and organizational win of separate data sets without forking your schema or your codebase.
+
+## What logical sharding isn't
+
+Physical sharding splits data across different machines or clusters and deals with replication, resharding, and cross-node joins. Logical sharding keeps everything on one Postgres for now, but imposes a rule — *data for tenant `42` always lives in shard `42`* — so moving to physical shards later is just a cutover, not a rewrite.
+
+Think of it as drawing the shard boundaries on paper first, then enforcing them in the schema.
+
+## When you need it
+
+You probably need logical sharding when one of these shows up:
+
+- One tenant's workload slows down everyone else (noisy neighbor).
+- Row counts hit the point where indexes and vacuum stop keeping up.
+- You need per-tenant isolation for backups, restores, or compliance.
+- You're thinking about Citus or a second Postgres and want the routing already done.
+
+If none of those are true, don't shard. A single well-indexed table will beat a sharded table with poor routing every time.
+
+## Pick a shard key
+
+The shard key is the column every query filters by. In Postgres, that's almost always `tenant_id`.
+
+Pick it badly and every join, transaction, and unique constraint becomes a cross-shard operation. Pick it well and most queries hit exactly one shard.
+
+Rules of thumb:
+
+- It should be present on every table that holds tenant data.
+- It should be immutable — reassigning a row to another tenant is a move, not an update.
+- It should have high cardinality. `tenant_id` beats `plan_type` every time.
+
+## The simplest version: declarative partitioning
+
+Since Postgres 10, you can partition a table by hash, range, or list. For logical sharding, hash on `tenant_id` is the common choice:
+
+```sql
+CREATE TABLE orders (
+  id bigserial,
+  tenant_id bigint NOT NULL,
+  status text NOT NULL,
+  total numeric NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (tenant_id, id)
+) PARTITION BY HASH (tenant_id);
+```
+
+Then create partitions. Hash partitioning requires a partition for each hash bucket, not one per tenant, unless you use PostgreSQL 17's merge/split or keep bucket count modest:
+
+```sql
+CREATE TABLE orders_p0 PARTITION OF orders
+  FOR VALUES WITH (MODULUS 16, REMAINDER 0);
+
+CREATE TABLE orders_p1 PARTITION OF orders
+  FOR VALUES WITH (MODULUS 16, REMAINDER 1);
+
+-- ... repeat to p15, or generate them with a DO block
+```
+
+Queries with a `WHERE tenant_id = $1` predicate prune to exactly one partition. Queries without the shard key scan everything — which is the entire discipline of logical sharding: never query without the key.
+
+Partition pruning also gives you cheap per-partition maintenance: detach a noisy partition for analysis, reindex a hot one, or drop it entirely in a tenant offboarding flow.
+
+### Routing in the app
+
+The application sets the tenant context on every query. In Node with `pg`, that's a `SET LOCAL` inside a transaction or a per-request client:
+
+```ts
+const client = await pool.connect();
+try {
+  await client.query("BEGIN");
+  await client.query("SET LOCAL app.tenant_id = $1", [tenantId]);
+  const { rows } = await client.query(
+    "SELECT * FROM orders WHERE tenant_id = $1 ORDER BY created_at DESC LIMIT 20",
+    [tenantId],
+  );
+  await client.query("COMMIT");
+  return rows;
+} finally {
+  client.release();
+}
+```
+
+That pattern pairs naturally with row-level security:
+
+```sql
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY tenant_isolation ON orders
+  USING (tenant_id = current_setting('app.tenant_id')::bigint);
+```
+
+Now a missing `tenant_id` in the `WHERE` clause isn't just slow — it returns nothing or fails. The shard key becomes a security boundary, not just a performance hint.
+
+## Schema-per-tenant
+
+If you have a modest number of tenants and need hard isolation, a schema per tenant is another form of logical sharding:
+
+```sql
+CREATE SCHEMA tenant_42;
+CREATE TABLE tenant_42.orders (LIKE orders INCLUDING ALL);
+```
+
+This makes per-tenant backups, migrations, and drop-tenant `DROP SCHEMA CASCADE` trivial. The cost is every migration has to run N times and connection search paths get complicated. It works best up to hundreds of tenants, not thousands.
+
+## Multiple databases with a router
+
+When one Postgres instance is genuinely out of capacity, the next step is multiple databases — one per shard group — with a small routing table in the app:
+
+```ts
+function getShardForTenant(tenantId: number) {
+  return SHARDS[hash(tenantId) % SHARDS.length];
+}
+```
+
+Keep a `shard_map` table (`tenant_id -> shard_id`) rather than hashing everywhere. Hashing is stable, but a map lets you move a tenant to another shard by updating one row. Resharding becomes a background copy job, not an app redeploy.
+
+Citus automates this whole layer: you declare a distribution column (the shard key), and it handles hash partitioning across Postgres workers, parallel queries, and cross-shard joins. If you're outgrowing a single instance and want managed sharding, it's the first thing to evaluate.
+
+## What breaks when you shard
+
+These are the things that bite after you split:
+
+- **Cross-tenant queries.** Reports and admin queries that span tenants have to fan out to every shard and merge in the app. Design them for that from the start.
+- **Foreign keys and unique constraints.** Postgres can't enforce a foreign key or unique constraint across partitions in the way it can within one table. Include the shard key in primary keys and unique indexes, enforce referential integrity in the app, or use triggers.
+- **Sequences.** With declarative partitioning, a single sequence is fine. With multiple databases, use UUIDs or a central id generator — sequences don't coordinate across nodes.
+- **Joins.** Join tables on the shard key so the planner can co-locate them. `orders` and `order_items` both partitioned by `tenant_id` is a same-shard join; partitioned by different keys it's a distributed join.
+- **Transactions.** A transaction that touches two shards is no longer atomic. Keep transactions tenant-local wherever you can.
+
+## The takeaway
+
+Logical sharding in Postgres is mostly a discipline problem, not a technology problem. Choose a shard key, make every query include it, put the partition or schema boundary behind it, and route in the application. Do that now and moving from one Postgres to Citus or several Postgres instances later is an operational task. Skip it, and the move becomes a rewrite — which is how most teams end up either not sharding at all or sharding under pressure.

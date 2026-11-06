@@ -176,7 +176,31 @@
   }
 
   .prose a {
-    @apply text-primary font-normal! underline underline-offset-4;
+    @apply text-primary font-normal! underline underline-offset-4 transition-colors;
+  }
+
+  .prose a,
+  .prose a:where(:hover) {
+    -webkit-text-decoration-color: color-mix(in oklab, var(--primary) 15%, transparent) !important;
+    text-decoration-color: color-mix(in oklab, var(--primary) 15%, transparent) !important;
+    text-decoration-thickness: 1px;
+  }
+
+  .prose a:hover {
+    -webkit-text-decoration-color: color-mix(in oklab, var(--primary) 30%, transparent) !important;
+    text-decoration-color: color-mix(in oklab, var(--primary) 30%, transparent) !important;
+  }
+
+  .prose details summary > p {
+    @apply m-0! flex items-center gap-1.5;
+  }
+
+  .prose details > div > p {
+    @apply m-0!;
+  }
+
+  .prose details[open] summary > p > span {
+    @apply rotate-90;
   }
 
   .prose blockquote {
