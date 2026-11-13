@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
@@ -161,5 +161,5 @@ const image = new ImageResponse(
   }
 );
 
-await Bun.write("public/og-image.png", Buffer.from(await image.arrayBuffer()));
+await writeFile("public/og-image.png", Buffer.from(await image.arrayBuffer()));
 console.log("Generated public/og-image.png (1200x630)");
