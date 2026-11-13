@@ -24,7 +24,7 @@ export const DATA = {
 
 I read, write [blogs](/blog) and learn out loud. More on my [resume](https://drive.google.com/file/d/1iT8hjMTnOH07pTSLjFe1-P0HS479VsRY/view).
 
-Currently building [Agentic AI](https://stealth.abdullahtech.dev) platform.`,
+Currently building [Euler](https://euler.abdullahtech.dev), an agentic AI platform.`,
 
   avatarUrl: "/pf.jpg",
   skills: [
