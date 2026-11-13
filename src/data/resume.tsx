@@ -22,7 +22,7 @@ export const DATA = {
   headline: "Full stack Software Engineer",
   summary: `Previously Founding Engineer at [Sylow AI](https://sylow.ai). Built [Purge AI](https://purgeai.abdullahtech.dev) used by thousands of developers. I write clean, maintainable code.
 
-I read, write [blogs](/blog) and learn out loud. More on my [resume](https://drive.google.com/file/d/1iT8hjMTnOH07pTSLjFe1-P0HS479VsRY/view).
+I read, write [blogs](/blog) and learn out loud. More on my [resume](https://drive.google.com/file/d/1j_Ixjrto7gRdjKKolW5qtLFiBsp_K7Bl/view).
 
 Currently building [Euler](https://euler.abdullahtech.dev), an agentic AI platform.`,
 
