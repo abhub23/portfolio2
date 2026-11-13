@@ -168,8 +168,8 @@ Currently building [Euler](https://euler.abdullahtech.dev), an agentic AI platfo
       image: "/purgeai.png",
     },
     {
-      title: "Agentic AI",
-      href: "https://stealth.abdullahtech.dev",
+      title: "Euler",
+      href: "https://euler.abdullahtech.dev",
       dates: "Feb 2026 - Current",
       active: true,
       description:
@@ -178,16 +178,16 @@ Currently building [Euler](https://euler.abdullahtech.dev), an agentic AI platfo
       links: [
         {
           type: "Website",
-          href: "https://stealth.abdullahtech.dev",
+          href: "https://euler.abdullahtech.dev",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/abhub23/stealth",
+          href: "https://github.com/abhub23/euler",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/agenticai.png",
+      image: "/euler-og.png",
     },
     {
       title: "Privado",
